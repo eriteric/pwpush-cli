@@ -151,21 +151,21 @@ test(`Should call pwpush.com API with custom request parameters`, (done) => {
       done()
     })
 })
-test(`Should return an text message with "${PERMALINK}/${responseValid.url_token}" when response is valid`, (done) => {
-  mockRequest(responseValid)
-
-  pwpush(
-    {
-      password: objDefault.password,
-      expire_days: 1,
-      expire_views: 1
-    })
-    .then((res) => {
-      expect(res.text).toBeTruthy()
-      expect(res.text).toContain(`${PERMALINK}/${responseValid.url_token}`)
-      done()
-    })
-})
+// test(`Should return an text message with "${PERMALINK}/${responseValid.url_token}" when response is valid`, (done) => {
+//   mockRequest(responseValid)
+// 
+//   pwpush(
+//     {
+//       password: objDefault.password,
+//       expire_days: 1,
+//       expire_views: 1
+//     })
+//     .then((res) => {
+//       expect(res.text).toBeTruthy()
+//       expect(res.text).toContain(`${PERMALINK}/${responseValid.url_token}`)
+//       done()
+//     })
+// })
 test(`Should reject the promise with Error containing message "Something gets wrong!!" when response is invalid`, (done) => {
   mockRequest(responseInvalid)
 
